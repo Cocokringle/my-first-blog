@@ -8,9 +8,11 @@
             </div>
                 <h1><a href="{% url 'post_detail' pk=post.pk %}">{{ post.title }}</a></h1>
             <p>{{ post.text|linebreaksbr }}</p>
+            {% if post.image %}
             <div class="img-responsive">
-            	<img src="/media/{{ post.image.url }}" alt="">
+            	<img src="{{ post.image.url }}" alt="">
             </div>
+            {% endif %}
         </div>
     {% endfor %}
 {% endblock content %}
